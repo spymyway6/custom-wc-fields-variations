@@ -1,0 +1,101 @@
+.cwcin-d-none{
+    display: none !important;
+}
+.custom-item-notes .item-notes-heading {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+    font-family: inherit;
+    color: #0f3ca0;    
+    margin-bottom: 10px;
+}
+.custom-item-notes label {
+    font-size: 14px;
+    font-weight: 600;
+}
+.custom-item-notes .cwcin-item-notes {
+    border: 1px solid #eee !important;
+    font-family: inherit;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: 0;
+    width:100%;
+    resize: vertical;
+    min-height: auto;
+}
+
+/* Floating Cart Edit */
+.cwcin-cart-item .wc-block-components-product-details__item-notes{
+    position: relative;
+}
+.cwcin-cart-item .cwcin-edit-notes-floating-wrapper form {
+    position: absolute;
+    background: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px;
+    z-index: 1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.cwcin-cart-item a.cwcin-edit-btn {
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ef7505;
+    outline: 0;
+}
+.cwcin-cart-item .cwcin-edit-notes-floating-wrapper {
+    padding-left: 20px;
+}
+.cwcin-cart-item .cwcin-edit-notes-floating-wrapper form label.cwcin-notes-label{
+    margin: 0 !important;
+}
+.cwcin-cart-item .cwcin-item-notes {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: inherit;
+    outline: 0;
+}
+.cwcin-cart-item .cwcin-float-btns {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+.cwcin-cart-item .cwcin-float-btns button {
+    font-size: 14px;
+    border: 1px solid #eee;
+    padding: 5px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: .8;
+    transition: .2s;
+}
+.cwcin-cart-item .cwcin-float-btns button:disabled {
+    background: #c2c2c2 !important;
+    color: #737373 !important;
+    border: 1px solid #c2c2c2 !important;
+    cursor: no-drop !important;
+    opacity: 1 !important;
+}
+.cwcin-cart-item .cwcin-float-btns button:hover{
+    opacity: 1;
+}
+.cwcin-cart-item .cwcin-float-btns button.cwcin-Cancel {
+    background: #be2c2c;
+    border: 1px solid #be2c2c;
+    color: #fff;
+}
+.cwcin-cart-item .cwcin-float-btns button.cwcin-Save {
+    background: #1f8037;
+    border: 1px solid #1f8037;
+    color: #fff;
+}
+.cwcin-cart-item .cust-err-msg {
+    color: #d52e2e;
+    font-weight: 400;
+}
