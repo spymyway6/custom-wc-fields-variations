@@ -44,7 +44,7 @@
     position: absolute;
     left: 0;
     font-size: 14px;
-    text-decoration: none;
+    text-decoration: none !important;
     color: #ef7505;
     outline: 0;
 }

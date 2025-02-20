@@ -29,8 +29,18 @@ if (cwcin_check_woocommerce_active()) {
     // Enqueue JavaScript and CSS
     function cwcin_enqueue_scripts() {
         wp_enqueue_style('cwcin-styles', plugin_dir_url(__FILE__) . 'assets/css/custom-wc-fields.css', array(), '1.0.0');
-        wp_enqueue_script('cwcin-scripts', plugin_dir_url(__FILE__) . 'assets/js/custom-wc-fields.js', array('jquery'), '1.0.0', true);
+        // wp_enqueue_script('cwcin-scripts', plugin_dir_url(__FILE__) . 'assets/js/custom-wc-fields.js', array('jquery'), '1.0.0', true);
         wp_enqueue_script('dashicons');
+
+        if (is_cart() || is_checkout()) { // Load only on relevant pages
+            wp_enqueue_script(
+                'cwcin-scripts',
+                plugin_dir_url(__FILE__) . 'assets/js/custom-wc-fields.js',
+                ['wp-blocks', 'wc-blocks-checkout'], // Ensure dependencies are met
+                '1.0.0',
+                true
+            );
+        }
     }
     add_action('wp_enqueue_scripts', 'cwcin_enqueue_scripts');
 
@@ -93,12 +103,6 @@ if (cwcin_check_woocommerce_active()) {
         return $item_data;
     }
     add_filter('woocommerce_get_item_data', 'cwcin_display_item_notes_in_cart', 10, 2);
-    
-    
-
-// ....................................................................................................
-
-// AJAX to update notes
 
     // Handle AJAX request to update item notes
     add_action('wp_ajax_cwcin_update_cart_item_notes', 'cwcin_update_cart_item_notes');
@@ -127,20 +131,6 @@ if (cwcin_check_woocommerce_active()) {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Save item notes to the order line item
     function cwcin_add_item_notes_to_order_items($item, $cart_item_key, $values, $order) {
         if (isset($values['item_notes'])) {
@@ -148,6 +138,5 @@ if (cwcin_check_woocommerce_active()) {
         }
     }
     add_action('woocommerce_checkout_create_order_line_item', 'cwcin_add_item_notes_to_order_items', 20, 4);
-
 
 }

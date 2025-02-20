@@ -94,7 +94,8 @@ function updateItemNotes(e, cartKey, cartItemID){
 }
 
 // Only runs on the Cart page and not on the sidebar cart
-if (window.wc && window.wc.blocksCheckout) {
+// if (window.wc && window.wc.blocksCheckout) {
+if (window.location.pathname.includes('/cart') || window.location.pathname.includes('/checkout')) {
     const { registerCheckoutFilters } = window.wc.blocksCheckout;
     const modifyCartItemClass = ( defaultValue, extensions, args ) => {
         const isCartContext = args?.context === 'cart';
